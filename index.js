@@ -128,6 +128,10 @@ document
     document.body.appendChild(table);
   });
 
+function quoteString(string) {
+  return `"${string}"`;
+}
+
 function downloadCSV() {
   // Create a new CSV string.
   const csvString = [];
@@ -182,7 +186,7 @@ function downloadCSV() {
     const values = keys.map((key) => object[key]);
 
     // Add the values to the CSV string.
-    csvString.push(values.join(";"));
+    csvString.push(values.map(quoteString).join(";"));
   }
 
   // Create a new Blob object.
