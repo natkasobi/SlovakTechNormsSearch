@@ -128,10 +128,6 @@ document
     document.body.appendChild(table);
   });
 
-function quoteString(string) {
-  return `"${string}"`;
-}
-
 function downloadCSV() {
   // Create a new CSV string.
   const csvString = [];
@@ -178,7 +174,7 @@ function downloadCSV() {
   }
 
   // Add the header row to the CSV string.
-  csvString.push(keys.map((key) => keyMap[key]).join(";"));
+  csvString.push(keys.map((key) => keyMap[key]).join("$"));
 
   // Iterate over the objects in the list and add them to the CSV string.
   for (const object of data) {
@@ -186,7 +182,7 @@ function downloadCSV() {
     const values = keys.map((key) => object[key]);
 
     // Add the values to the CSV string.
-    csvString.push(values.map(quoteString).join(";"));
+    csvString.push(values.map.join("$"));
   }
 
   // Create a new Blob object.
