@@ -182,7 +182,7 @@ function downloadCSV() {
     const values = keys.map((key) => object[key]);
 
     // Add the values to the CSV string.
-    csvString.push(values.map.join("$"));
+    csvString.push(values.join("$"));
   }
 
   // Create a new Blob object.
